@@ -24,7 +24,14 @@ These are where the files originally came from:
     Entirely plagiarized from [anrxc][3] again (Thank you again!)
 
 -   dir_colors
+
     A dump from <code>dircolors -p</code> for now
+
+-   conkerorrc
+
+    I don't remember where I got this, but I know I've added to it.  Also,
+    Instapaper and the RSS subscription aren't working.
+
 
 [1]: http://git.sysphere.org/dotfiles/tree/Xdefaults "anrxc's .Xdefaults"
 [2]: https://github.com/dotphiles/dotphiles "dotphiles base repository"
