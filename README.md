@@ -3,6 +3,8 @@ the-dot-files
 
 These are my dot files (or most of them)
 
+Just link each of these to your ${HOME} directory to put them to use.
+
 These are where the files originally came from:
 
 -   Xdefaults
