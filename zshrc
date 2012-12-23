@@ -189,6 +189,22 @@ function web ()   { "${BROWSER}" "http://yubnub.org/parser/parse?command=${*}" }
 function pmem ()  { ps -o rss,comm -p `pgrep "$1"` }
 function dsync () { rsync -lprt --progress --stats --delete "$1/" "$2/" }
 
+function chpwd() {
+    [[ -t 1 ]] || return
+    [[ -z "${TMUX}" ]] || return
+    case $TERM in
+        sun-cmd) print -Pn "\e]l%~\e\\"
+            ;;
+        *xterm*|rxvt|(dt|k|E)term) print -Pn "\e]2;%~\a"
+        ;;
+    esac
+}
+
+function tmuxssh() {
+    [[ -z "${TMUX}" ]] && return
+    tmux -c "ssh $1"
+}
+
 function snap () {
     [ "$2" ] && tmout="$2"  || tmout=5
     [ "$3" ] && format="$3" || format=png
