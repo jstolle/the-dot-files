@@ -1,4 +1,4 @@
-# -*- shell-script -*-
+# -*- shell-script-mode -*-
 # 
 # anrxc's init file for Z-SHELL 4.3.10 on Arch GNU/Linux.
 
@@ -45,7 +45,7 @@ alias ll="ls -l"
 alias lfi="ls -l | egrep -v '^d'"
 alias ldi="ls -l | egrep '^d'"
 alias lst="ls -htl | grep `date +%Y-%m-%d`"
-alias grep="grep --color=always"
+alias grep="pcregrep --color=always"
 alias cp="cp -ia"
 alias mv="mv -i"
 alias rm="rm -i"
@@ -62,19 +62,19 @@ alias free="free -m"
 alias su="su - "
 alias x="startx &! logout"
 alias rehash="hash -r"
-alias eject="eject -v /dev/sr0 "
-alias retract="eject -t -v /dev/sr0 "
+#alias eject="eject -v /dev/sr0 "
+#alias retract="eject -t -v /dev/sr0 "
 alias vuser="fuser -v "
 alias ping="ping -c 5"
 alias more="less"
-alias mc=". /usr/lib/mc/mc-wrapper.sh -x"
-alias links="links ${HOME}/.links/startpage.html"
+#alias mc=". /usr/lib/mc/mc-wrapper.sh -x"
+#alias links="links ${HOME}/.links/startpage.html"
 alias play="play -v"
-alias xtr="extract"
+#alias xtr="extract"
 alias last='last -adn 10'
-alias screen="screen -U -l"
-alias scr="screen -r"
-alias scd="screen -rd"
+#alias screen="screen -U -l"
+#alias scr="screen -r"
+#alias scd="screen -rd"
 alias sat="date +%R"
 alias bat="acpitool -b"
 alias calc="bc -l <<<"
@@ -90,52 +90,52 @@ alias xpop="xprop | grep --color=none 'WM_CLASS\|^WM_NAME' | xmessage -file -"
 # }}}
 
 # {{{ Pacman
-alias pacsy="sudo pacman -Sy"               # Sync & Update
-alias pacup="sudo pacman -Syu"              # Sync, Update & Upgrade
-alias pacdg="sudo pacman -Syuu"             # Sync, Update & Downgrade
-alias paclu="pacman -Qu"                    # List upgradeable
-alias pacin="sudo pacman -S"                # Install a specific package
-alias pacnd="sudo pacman -Sdd"              # Install a package but ignore deps
-alias pacrm="sudo pacman -Rns"              # Remove a specific package
-alias pacrd="sudo pacman -Rdd"              # Remove a package but ignore deps
-alias pacss="pacman -Ss"                    # Search for a package
-alias pacsl="pacman -Qs"                    # Search for a package localy
-alias pacsi="pacman -Si"                    # Package info
-alias pacqi="pacman -Qi"                    # Package local info
-alias pacls="pacman -Ql"                    # List files in a package
-alias pacui="pacman -Qm"                    # List localy built packages
-alias pacfi="pacman -Qo"                    # Which package file belongs to
-alias paccl="sudo pacman -Scc"              # Fully clean the package cache
-alias pacdl="sudo pacman -Swdd"             # Download a package without installing
-alias paclo="pacman -Qdt"                   # List package orphans
-alias paclog="pacman -Qc"                   # Package changelog
+#alias pacsy="sudo pacman -Sy"               # Sync & Update
+#alias pacup="sudo pacman -Syu"              # Sync, Update & Upgrade
+#alias pacdg="sudo pacman -Syuu"             # Sync, Update & Downgrade
+#alias paclu="pacman -Qu"                    # List upgradeable
+#alias pacin="sudo pacman -S"                # Install a specific package
+#alias pacnd="sudo pacman -Sdd"              # Install a package but ignore deps
+#alias pacrm="sudo pacman -Rns"              # Remove a specific package
+#alias pacrd="sudo pacman -Rdd"              # Remove a package but ignore deps
+#alias pacss="pacman -Ss"                    # Search for a package
+#alias pacsl="pacman -Qs"                    # Search for a package localy
+#alias pacsi="pacman -Si"                    # Package info
+#alias pacqi="pacman -Qi"                    # Package local info
+#alias pacls="pacman -Ql"                    # List files in a package
+#alias pacui="pacman -Qm"                    # List localy built packages
+#alias pacfi="pacman -Qo"                    # Which package file belongs to
+#alias paccl="sudo pacman -Scc"              # Fully clean the package cache
+#alias pacdl="sudo pacman -Swdd"             # Download a package without installing
+#alias paclo="pacman -Qdt"                   # List package orphans
+#alias paclog="pacman -Qc"                   # Package changelog
 # }}}
 
 # {{{ Slurpy
-alias aurup="slurpy -c -u -d"               # Sync, Update & Download
-alias aurlu="slurpy -c -u"                  # Update & List upgradeable
-alias aurss="slurpy -c -s"                  # Search for a package
-alias aursi="slurpy -c -i"                  # Package info
-alias aurgo="slurpy -c -g"                  # Visit AUR page
-alias aurdl="slurpy -c -d"                  # Download a package without installing
+#alias aurup="slurpy -c -u -d"               # Sync, Update & Download
+#alias aurlu="slurpy -c -u"                  # Update & List upgradeable
+#alias aurss="slurpy -c -s"                  # Search for a package
+#alias aursi="slurpy -c -i"                  # Package info
+#alias aurgo="slurpy -c -g"                  # Visit AUR page
+#alias aurdl="slurpy -c -d"                  # Download a package without installing
 # }}}
 
 # {{{ Swaret
-alias swup="sudo swaret --update --upgrade" # Sync, Update & Upgrade
-alias swsy="sudo swaret --update"           # Sync & Update
-alias swlu="sudo swaret --list -u"          # List upgradeable
-alias swin="sudo swaret --install"          # Install a specific package
-alias swrm="sudo swaret --remove"           # Remove a specific package
-alias swss="sudo swaret --search"           # Search for a package
-swsl() { sudo swaret --search "$1" -i }     # Search for a package localy
-swsi() { sudo swaret --show "$1" -p }       # Package info
-swqi() { sudo swaret --show "$1" -i }       # Package local info
-swls() { less `locate /var/log/packages/"$1"` } # List files in a package
-swfi() { grep "$1" /var/log/packages/* }    # Which package file belongs to
-alias swui="sudo swaret --search aic -i"    # List localy built packages
-alias swcl="sudo swaret --purge"            # Fully clean the package cache
-alias swdl="sudo swaret --get"              # Download a package without installing
-alias swlog="sudo swaret --changelog"       # Package changelog
+#alias swup="sudo swaret --update --upgrade" # Sync, Update & Upgrade
+#alias swsy="sudo swaret --update"           # Sync & Update
+#alias swlu="sudo swaret --list -u"          # List upgradeable
+#alias swin="sudo swaret --install"          # Install a specific package
+#alias swrm="sudo swaret --remove"           # Remove a specific package
+#alias swss="sudo swaret --search"           # Search for a package
+#swsl() { sudo swaret --search "$1" -i }     # Search for a package localy
+#swsi() { sudo swaret --show "$1" -p }       # Package info
+#swqi() { sudo swaret --show "$1" -i }       # Package local info
+#swls() { less `locate /var/log/packages/"$1"` } # List files in a package
+#swfi() { grep "$1" /var/log/packages/* }    # Which package file belongs to
+#alias swui="sudo swaret --search aic -i"    # List localy built packages
+#alias swcl="sudo swaret --purge"            # Fully clean the package cache
+#alias swdl="sudo swaret --get"              # Download a package without installing
+#alias swlog="sudo swaret --changelog"       # Package changelog
 # }}}
 # }}}
 

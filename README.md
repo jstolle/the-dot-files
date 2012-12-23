@@ -21,6 +21,9 @@ These are where the files originally came from:
 
     Entirely plagiarized from [anrxc][3] again (Thank you again!)
 
+-   dir_colors
+    A dump from <code>dircolors -p</code> for now
+
 [1]: http://git.sysphere.org/dotfiles/tree/Xdefaults "anrxc's .Xdefaults"
 [2]: https://github.com/dotphiles/dotphiles "dotphiles base repository"
 [3]: http://git.sysphere.org/dotfiles/tree/zshrc "anrxc's .zshrc"
