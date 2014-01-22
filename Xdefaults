@@ -35,7 +35,7 @@ URxvt*urgentOnBell:       true
 # Extensions
 URxvt*perl-lib:        /usr/lib/urxvt/perl/
 URxvt*perl-ext-common: default,matcher,searchable-scrollback
-URxvt*urlLauncher:     ~/bin/conkeror
+URxvt*urlLauncher:     /usr/bin/chromium
 URxvt*matcher.button:  1
 # Catch ugly URLs
 URxvt*cutchars:        '"'()*<>[]{|}
@@ -49,12 +49,15 @@ URxvt*cursorColor: #DCDCCC
 # URLs
 URxvt*.colorUL:    #ffffff
 #
+# Real Transparency
+URxvt*depth:       32
+#
 # Pseudo Transparency
 #URxvt*shading:    50
 #URxvt*transparent:true
 #
 # Zenburn color-scheme
-URxvt*background:  #3f3f3f
+URxvt*background:  [75]#3f3f3f
 URxvt*foreground:  #dcdccc
 # black + red
 #URxvt*color0:     #3f3f3f

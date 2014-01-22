@@ -11,10 +11,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-# exec gnome-session
-# exec startkde
-# exec startxfce4
-# ...or the Window Manager of your choice
+export LC_ALL="C"
+export LC_COLLATE="C"
+export LANGUAGE="en_US.UTF8"
+export LC_LANG="en_US.UTF8"
 
 xrandr -s 0
 
@@ -31,17 +31,23 @@ if [ -x /usr/bin/ssh-agent ] && [ -f $id1 -o -f $id2 -o -f $id3 ]; then
     ssh-add < /dev/null
 fi
 
-xset fp+ /usr/share/fonts/misc
-xset fp+ /usr/share/fonts/TTF
+# Get the fonts cataloged
+xset fp rehash
+xset +fp /usr/share/fonts/misc
+xset +fp /usr/share/fonts/TTF
+xset +fp /usr/share/fonts/local
 
-# xset fp rehash
 xset b 100 0 0
 xset r rate 170 30
 
-xmodmap -e "keycode 233 = Page_Down"
-xmodmap -e "keycode 234 = Page_Up"
+# Rearrange the keys
+XMODMAP="${HOME}/.Xmodmap"
+[ -f ${XMODMAP} ] && xmodmap ${XMODMAP}
 
-xmonad &
+xautolock -time 30 -locker /usr/bin/slock -secure -detectsleep -corners ++00 -cornerdelay 10 -cornerredelay 30 &
+xcompmgr &
 
-# wait for xmonad
+$1 &
+
+# wait for window manager
 wait $!
