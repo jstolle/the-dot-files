@@ -12,7 +12,9 @@ Xft.rgba:      rgb
 
 #{{{ EMACS
 #
-Emacs.font: -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-2
+#Emacs.font: -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-2
+#Emacs*font: xft:inconsolata-g:size=10
+Emacs*font: xft:Terminus:pixelsize=12
 #}}}
 
 
@@ -35,14 +37,18 @@ URxvt*urgentOnBell:       true
 # Extensions
 URxvt*perl-lib:        /usr/lib/urxvt/perl/
 URxvt*perl-ext-common: default,matcher,searchable-scrollback
-URxvt*urlLauncher:     /usr/bin/chromium
+URxvt*urlLauncher:     /usr/bin/xdg-open
 URxvt*matcher.button:  1
 # Catch ugly URLs
 URxvt*cutchars:        '"'()*<>[]{|}
 #
 # Appearance
-URxvt*font:     -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-2
-URxvt*boldFont: -xos4-terminus-bold-*-*-*-12-*-*-*-*-*-iso8859-2
+#URxvt*font:     -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-2
+#URxvt*font:     xft:inconsolata-g:size=10
+URxvt*font:     xft:Terminus:pixelsize=12
+#URxvt*boldFont: -xos4-terminus-bold-*-*-*-12-*-*-*-*-*-iso8859-2
+#URxvt*boldFont: xft:inconsolata-g:size=10
+URxvt*boldFont: xft:Terminus:pixelsize=12
 #
 # Cursor
 URxvt*cursorColor: #DCDCCC
@@ -57,7 +63,7 @@ URxvt*depth:       32
 #URxvt*transparent:true
 #
 # Zenburn color-scheme
-URxvt*background:  [75]#3f3f3f
+URxvt*background:  [80]#3f3f3f
 URxvt*foreground:  #dcdccc
 # black + red
 #URxvt*color0:     #3f3f3f
@@ -141,7 +147,8 @@ XLock.info:
 #XLock.info:         Enter password to unlock \nSelect icon to lock
 XLock.validate:      Validating login...
 XLock.invalid:       Login failed
-XLock*font:          -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-2
+XLock*font:          xft:lemon:size=10
+#XLock*font:          -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-2
 #XLock.ncolors:      200
 #XLock.dpmsstandby:  600
 #XLock.dpmssuspend:  1200
@@ -204,7 +211,8 @@ Xmessage*defaultButton:         Quit
 #{{{ XCLIPBOARD
 xclipboard.geometry:	  287x195+993+15
 XClipboard*international: true
-XClipboard*font:          -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-2
+#XClipboard*font:          -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-2
+XClipboard*font:          xft:lemon:size=10
 XClipboard*borderColor:	  #3F3F3F
 XClipboard*cursorColor:	  Gray93
 XClipboard*Foreground:    #F0DFAF
@@ -266,7 +274,8 @@ XFontSel*MenuButton.shadowWidth:          0
 XFontsel*Toggle*ToggleStyle:          check
 XFontsel*MenuButton*Justify:           left
 XFontsel*MenuButton*MenuButtonStyle: select
-xfontsel*Font: -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-2
+#xfontsel*Font: -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-2
+xfontsel*Font: xft:inconsolata-g:size=10
 xfontsel.pane.commandBox.quitButton.background:           #777777
 xfontsel.pane.commandBox.quitButton.foreground:           snow
 xfontsel.pane.commandBox.ownButton.background:            orange3
@@ -307,4 +316,10 @@ xfontsel.pane.fieldBox.MenuButton.borderWidth:   1
 xfontsel.pane.fieldBox.MenuButton.internalHeight:1
 xfontsel.pane.fieldBox.MenuButton.internalWidth: 2
 xfontsel.pane.fieldBox.MenuButton.shapeStyle:    rectangle
+#}}}
+
+#{{{ dzen2
+dzen2.font:        xft:Terminus:pixelsize=12
+dzen2.background:  #3f3f3f
+dzen2.foreground:  #dcdccc
 #}}}

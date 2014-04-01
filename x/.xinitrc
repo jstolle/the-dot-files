@@ -18,7 +18,8 @@ export LC_LANG="en_US.UTF8"
 
 xrandr -s 0
 
-xrdb merge ${HOME}/.Xresources
+XRESOURCES="${HOME}/.Xresources"
+[ -f ${XRESOURCES} ] && xrdb merge ${XRESOURCES}
 xsetroot -cursor_name left_ptr
 xsetroot -solid '#80a0f'
 
@@ -44,8 +45,10 @@ xset r rate 170 30
 XMODMAP="${HOME}/.Xmodmap"
 [ -f ${XMODMAP} ] && xmodmap ${XMODMAP}
 
-xautolock -time 30 -locker /usr/bin/slock -secure -detectsleep -corners ++00 -cornerdelay 10 -cornerredelay 30 &
-xcompmgr &
+/usr/bin/xautolock -time 30 -locker /usr/bin/slock -secure -detectsleep -corners ++00 -cornerdelay 10 -cornerredelay 30 &
+/usr/bin/compton &
+/usr/bin/xbanish &
+${HOME}/bin/random-wallpaper --timer 15m --wallpaper ${HOME}/wallpaper &
 
 $1 &
 
