@@ -12,7 +12,7 @@ below.
 Please don't hesitate to send me questions and/or fixes if something is
 broken.
 
-&installer.sh& -- The installer script.  The usage is as follows:
+`installer.sh` &mdash; The installer script.  The usage is as follows:
 
     installer.sh [-a|-r|-x]
         -a    Install all packages in the directory (default behavior)
