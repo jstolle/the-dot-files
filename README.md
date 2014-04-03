@@ -1,38 +1,43 @@
 the-dot-files
 =============
 
-These are my dot files (or most of them)
+These are my dot files (or most of them).  This is a constantly moving target,
+but I'll do my best to keep up with the modifications.
 
-Just link each of these to your ${HOME} directory to put them to use.
+Each directory here holds some kind of dotfiles in a way in which
+[GNU stow][1] can install them into the home directory.  The installer.sh
+script runs stow against each package.  This is explained in greater detail
+below.
 
-These are where the files originally came from:
+Please don't hesitate to send me questions and/or fixes if something is
+broken.
 
--   Xdefaults
+installer.sh -- The installer script.  The usage is as follows:
 
-    Entirely plagiarized from [anrxc][1] (Thank you!)
+    installer.sh [-a|-r|-x]
+        -a    Install all packages in the directory (default behavior)
+        -r    Install only the regular packages (non-X)
+        -x    Install only the X packages
 
--   Xmodmap
+compton -- Settings for [Compton][2]
+git -- Settings for [git][3]
+gnupg -- Settings for [gnupg][4]
+ssh -- Settings for [ssh][5] (currently empty)
+term -- Generic terminal settings (only a dump from <code>dircolors -p</code> for now)
+tmux -- Settings for [tmux][6] (stolen from [dotphiles][7] for now)
+x -- Settings for X (Xmodmap is mine, but Xdefaults is plagiarized from [anrxc][8]
+xmonad -- Settings Xmonad setup completely stolen from [nnoell][9] (for now; I
+will be tinkering)
+zsh -- My zshrc file which is currently a gossamer veil over oh-my-zsh (which
+I have already omitted from this list
 
-    Cobbled together myself.
-
--   tmux.conf
-
-    This is from [dotphiles][2]. I haven't tinkered on it yet.
-
--   zshrc
-
-    Entirely plagiarized from [anrxc][3] again (Thank you again!)
-
--   dir_colors
-
-    A dump from <code>dircolors -p</code> for now
-
--   conkerorrc
-
-    I don't remember where I got this, but I know I've added to it.  Also,
-    Instapaper and the RSS subscription aren't working.
-
-
-[1]: http://git.sysphere.org/dotfiles/tree/Xdefaults "anrxc's .Xdefaults"
-[2]: https://github.com/dotphiles/dotphiles "dotphiles base repository"
-[3]: http://git.sysphere.org/dotfiles/tree/zshrc "anrxc's .zshrc"
+[1]: http://www.gnu.org/software/stow/ "GNU stow"
+[2]: https://github.com/chjj/compton "Compton homepage"
+[3]: http://git-scm.com/ "git homepage"
+[4]: http://www.gnu.org/software/gnupg/ "GnuPG homepage"
+[5]: http://www.openssh.com/ "OpenSSH hoomepage"
+[6]: http://tmux.sourceforge.net/ "tmux homepage"
+[7]: https://github.com/dotphiles/dotphiles "dotphiles base repository"
+[8]: http://git.sysphere.org/dotfiles/tree/Xdefaults "anrxc's .Xdefaults"
+[9]: https://github.com/nnoell "Github page of nnoell"
+[10]: http://zsh.sourceforge.net/ "Zsh hoomepage"
