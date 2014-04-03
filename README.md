@@ -12,23 +12,31 @@ below.
 Please don't hesitate to send me questions and/or fixes if something is
 broken.
 
-installer.sh -- The installer script.  The usage is as follows:
+&installer.sh& -- The installer script.  The usage is as follows:
 
     installer.sh [-a|-r|-x]
         -a    Install all packages in the directory (default behavior)
         -r    Install only the regular packages (non-X)
         -x    Install only the X packages
 
-compton -- Settings for [Compton][2]
-git -- Settings for [git][3]
-gnupg -- Settings for [gnupg][4]
-ssh -- Settings for [ssh][5] (currently empty)
-term -- Generic terminal settings (only a dump from <code>dircolors -p</code> for now)
-tmux -- Settings for [tmux][6] (stolen from [dotphiles][7] for now)
-x -- Settings for X (Xmodmap is mine, but Xdefaults is plagiarized from [anrxc][8]
-xmonad -- Settings Xmonad setup completely stolen from [nnoell][9] (for now; I
+`compton` &mdash; Settings for [Compton][2]
+
+`git` &mdash; Settings for [git][3]
+
+`gnupg` &mdash; Settings for [gnupg][4]
+
+`ssh` &mdash; Settings for [ssh][5] (currently empty)
+
+`term` &mdash; Generic terminal settings (only a dump from <code>dircolors -p</code> for now)
+
+`tmux` &mdash; Settings for [tmux][6] (stolen from [dotphiles][7] for now)
+
+`x` -- Settings for X (Xmodmap is mine, but Xdefaults is plagiarized from [anrxc][8]
+
+`xmonad` &mdash; Settings Xmonad setup completely stolen from [nnoell][9] (for now; I
 will be tinkering)
-zsh -- My zshrc file which is currently a gossamer veil over oh-my-zsh (which
+
+`zsh` &mdash; My zshrc file which is currently a gossamer veil over oh-my-zsh (which
 I have already omitted from this list
 
 [1]: http://www.gnu.org/software/stow/ "GNU stow"
