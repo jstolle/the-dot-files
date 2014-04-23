@@ -1,3 +1,9 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git://github.com/jstolle/oh-my-zsh.git
+[submodule "mybin/bin"]
+	path = mybin/code/bin
+	url = git@github.com:jstolle/shell-scripts.git
+[submodule "backups/backups"]
+	path = backups/backups
+	url = https://github.com/jstolle/backups.git

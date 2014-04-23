@@ -280,11 +280,11 @@ green2BBoxPP = BoxPP
 -- Dzen logger clickable areas
 calendarCA :: CA
 calendarCA = CA
-        { leftClickCA   = "/home/psykotedy/bin/dzencal.sh"
-        , middleClickCA = "/home/psykotedy/bin/dzencal.sh"
-        , rightClickCA  = "/home/psykotedy/bin/dzencal.sh"
-        , wheelUpCA     = "/home/psykotedy/bin/dzencal.sh"
-        , wheelDownCA   = "/home/psykotedy/bin/dzencal.sh"
+        { leftClickCA   = "/home/psykotedy/x-bin/dzencal.sh"
+        , middleClickCA = "/home/psykotedy/x-bin/dzencal.sh"
+        , rightClickCA  = "/home/psykotedy/x-bin/dzencal.sh"
+        , wheelUpCA     = "/home/psykotedy/x-bin/dzencal.sh"
+        , wheelDownCA   = "/home/psykotedy/x-bin/dzencal.sh"
         }
  
 layoutCA :: CA
@@ -355,7 +355,7 @@ myStartupHook =
         (setDefaultCursor xC_left_ptr) <+>
         (spawn "/usr/bin/killall haskell-cpu-usage.out") <+>
         (liftIO $ threadDelay 1000000) <+> --needed so that xmonad can be launched on the fly without crashing
-        (spawn "/home/psykotedy/.xmonad/apps/haskell-cpu-usage.out 9") <+>
+        (spawn "/home/psykotedy/x-bin/haskell-cpu-usage.out 9") <+>
         (startTimer 1 >>= XS.put . TID)
  
  
@@ -759,18 +759,15 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
         , ((modMask .|. controlMask, xK_d), sendMessage $ ToggleGap D) --toogle the bottom gaps
         --Scripts management bindings
         , ((modMask, xK_d), spawn "/usr/bin/killall dzen2 haskell-cpu-usage.out")                                             --Kill dzen2
-        , ((0, 0x1008ffa9), spawn "/home/psykotedy/bin/touchpadtoggle.sh")                                                       --Toggle touchpad (xmodmap -pk | grep -i toggle)
-        , ((0, xF86XK_AudioMute), spawn "/home/psykotedy/bin/voldzen.sh t -d")                                                   --Mute/unmute volume
-        , ((0, xF86XK_AudioRaiseVolume), spawn "/home/psykotedy/bin/voldzen.sh + -d")                                            --Raise volume
-        , ((mod1Mask, xK_Up), spawn "/home/psykotedy/bin/voldzen.sh + -d")
+        , ((0, xF86XK_AudioMute), spawn "/home/psykotedy/x-bin/voldzen.sh t -d")                                                   --Mute/unmute volume
+        , ((0, xF86XK_AudioRaiseVolume), spawn "/home/psykotedy/x-bin/voldzen.sh + -d")                                            --Raise volume
+        , ((mod1Mask, xK_Up), spawn "/home/psykotedy/x-bin/voldzen.sh + -d")
         , ((0, xF86XK_AudioLowerVolume), spawn "/home/psykotedy/bin/voldzen.sh - -d")                                            --Lower volume
-        , ((mod1Mask, xK_Down), spawn "/home/psykotedy/bin/voldzen.sh - -d")
-        , ((0, xF86XK_MonBrightnessUp), spawn "/home/psykotedy/bin/bridzen.sh")                                                  --Raise brightness
-        , ((0, xF86XK_MonBrightnessDown), spawn "/home/psykotedy/bin/bridzen.sh")                                                --Lower brightness
+        , ((mod1Mask, xK_Down), spawn "/home/psykotedy/x-bin/voldzen.sh - -d")
+        , ((0, xF86XK_MonBrightnessUp), spawn "/home/psykotedy/x-bin/bridzen.sh")                                                  --Raise brightness
+        , ((0, xF86XK_MonBrightnessDown), spawn "/home/psykotedy/x-bin/bridzen.sh")                                                --Lower brightness
         , ((modMask .|. controlMask, xK_l), spawn "/usr/bin/slock")                                                --Lock screen
-        , ((0, 0xff14), spawn "/home/psykotedy/bin/turnoffscreen.sh")
         , ((0, xK_Print), spawn "/usr/bin/scrot '%Y-%m-%d_$wx$h.png'" >> flashText myTextConfig 1 " Screenshot Saved ")       --Take a screenshot
-        , ((modMask , xK_s), spawn "/home/psykotedy/bin/turnoffscreen.sh")                                                       --Turn off screen
         --Workspaces management bindings
         , ((mod1Mask, xK_comma), flashText myTextConfig 1 " Toggled to Previous Workspace " >> toggleWS)                          --Toggle to the workspace displayed previously
         , ((mod1Mask, xK_masculine), flashText myTextConfig 1 " Switching with Workspace 1 " >> toggleOrView (myWorkspaces !! 0)) --If ws != 0 then move to workspace 0, else move to latest ws I was

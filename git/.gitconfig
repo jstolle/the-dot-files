@@ -3,3 +3,13 @@
 	email = josh@jstolle.com
 [color]
         ui = auto
+[alias]
+	br = branch
+	ci = commit
+	co = checkout
+	cp = cherry-pick
+	df = diff
+        dfc = diff --cached
+	fp = format-patch
+	lg = log -p
+	st = status

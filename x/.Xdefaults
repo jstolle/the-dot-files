@@ -45,7 +45,8 @@ URxvt*cutchars:        '"'()*<>[]{|}
 # Appearance
 #URxvt*font:     -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-2
 #URxvt*font:     xft:inconsolata-g:size=10
-URxvt*font:     xft:Terminus:pixelsize=12
+URxvt*font:     xft:Liberation Mono:pixelsize=10:antialias=false:autohint=false
+#URxvt*font:     xft:Terminus:pixelsize=12
 #URxvt*boldFont: -xos4-terminus-bold-*-*-*-12-*-*-*-*-*-iso8859-2
 #URxvt*boldFont: xft:inconsolata-g:size=10
 URxvt*boldFont: xft:Terminus:pixelsize=12
