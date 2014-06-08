@@ -1,5 +1,5 @@
 [submodule "mybin/bin"]
-	path = mybin/code/bin
+	path = bin
 	url = git@github.com:jstolle/shell-scripts.git
 [submodule "backups/backups"]
 	path = backups/backups
