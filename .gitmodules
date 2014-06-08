@@ -7,6 +7,3 @@
 [submodule "backups/backups"]
 	path = backups/backups
 	url = https://github.com/jstolle/backups.git
-[submodule "emacs/.emacs.d"]
-	path = emacs/.emacs.d
-	url = git@github.com:jstolle/the-dot-emacs.git
