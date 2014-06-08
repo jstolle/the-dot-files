@@ -204,7 +204,7 @@ bindkey '\C-x\C-e' edit-command-line
 # {{{ Functions
 function _runtabbed () {
     tabbed -dn tabbed-surf -r 2 surf -e '' "$uri" >"$xidfile" \
-	2>/dev/null &
+        2>/dev/null &
 }
 
 function trim  () { echo $1; }
@@ -237,34 +237,31 @@ function extract () {
 }
 
 function surft () {
-    xidfile="$HOME/tmp/tabbed-surf.xid"
-    uri=""
+    local xidfile="$HOME/tmp/tabbed-surf.xid"
+    local uri=""
 
-    if [ "$#" -gt 0 ];
-    then
-	uri="$1"
+    if test "$#" -gt 0 ; then
+        uri="$1"
     fi
 
 
-    if [ ! -r "$xidfile" ];
-    then
+    if test ! -r "$xidfile" ; then
         _runtabbed
     else
-        xid=$(cat "$xidfile")
+        local xid=$(cat "$xidfile")
         xprop -id "$xid" >/dev/null 2>&1
-        if [ $? -gt 0 ];
-        then
-	    _runtabbed
+        if test $? -gt 0 ; then
+            _runtabbed
         else
-	    surf -e "$xid" "$uri" >/dev/null 2>&1 &
+            surf -e "$xid" "$uri" >/dev/null 2>&1 &
         fi
     fi
 }
 
 function snap () {
-    [ "$2" ] && tmout="$2"  || tmout=5
-    [ "$3" ] && format="$3" || format=png
-    fname="${HOME}/$1-`date +%d%m%y-%H%M`"
+    test -n "$2" && tmout="$2"  || tmout=5
+    test -n "$3" && format="$3" || format=png
+    local fname="${HOME}/$1-`date +%d%m%y-%H%M`"
     for ((i=${tmout}; i>=1; i--)) do; echo -n "${i}.. "; sleep 1; done
     import -window root -quality 100 "${fname}.${format}"
     convert -resize "15%" "${fname}.${format}" "${fname}.th.${format}"
