@@ -13,6 +13,7 @@ export HISTSIZE=10000
 export LC_LANG=$LANG
 export LESS="-R"
 export LESSHISTFILE="-"
+export LESSOPEN="| /usr/bin/lesspipe.sh %s"
 export PAGER="less"
 export PATH="${HOME}/bin:${PATH}"
 export READNULLCMD="${PAGER}"
@@ -52,7 +53,9 @@ alias du="du -hc"
 alias dus="du -S | sort -n"
 alias ec="emacsclient -a emacs -n "
 alias ect="emacsclient -a emacs -t "
+alias ejct="sudo /usr/bin/eject "
 alias free="free -m"
+alias fuck='sudo $(fc -nl -1)'
 alias gpgd="gpg2 --decrypt"
 alias gpge="gpg2 -ear jstolle"
 alias grep="pcregrep --color=always"
@@ -68,6 +71,7 @@ alias mc=". /usr/lib/mc/mc-wrapper.sh -x"
 alias more="less"
 alias mv="mv -i"
 alias passgen="< /dev/urandom tr -cd \[:graph:\] | fold -w 32 | head -n 5"
+alias passtxt="< /dev/urandom tr -cd \[:alnum:\] | fold -w 32 | head -n 5"
 alias ping="ping -c 5"
 alias play="play -v"
 alias please='sudo'
@@ -76,6 +80,7 @@ alias psptree="ps auxwwwf"
 alias rehash="hash -r"
 alias rm="rm -i"
 alias sat="date +%R"
+alias shit='sudo $(fc -nl -1)'
 alias shred="shred -uz"
 alias spell="aspell -a <<< "
 alias su="su - "
@@ -153,9 +158,9 @@ setopt histreduceblanks histignorespace inc_append_history
 
 # Prompt requirements
 setopt extended_glob prompt_subst
-autoload -Uz zsh/terminfo && zsh/terminfo
-autoload -Uz colors && colors
-autoload -Uz promptinit && promptinit
+autoload -Uz zsh/terminfo colors promptinit
+colors
+promptinit
 
 # use /etc/hosts and known_hosts for hostname completion
 [ -r /etc/ssh/ssh_known_hosts ] && \
@@ -269,8 +274,9 @@ function snap () {
 }
 
 function tmux () {
-    local TMUX_COMMAND=$(which tmux)
-    base_session="$1"
+    local TMUX_COMMAND="/usr/bin/tmux"
+    local MC_COMMAND="/usr/lib/mc/mc-wrapper.sh"
+    local base_session="$1"
 
     # Set the default session name if  one was not passed in
     if test -z "${base_session}" ; then
@@ -278,24 +284,20 @@ function tmux () {
     fi
 
     # Only because I often issue `ls` to this script by accident
-    if test "$1" == "ls" ; then
+    if [[ "${base_session}" == "ls" ]]; then
         ${TMUX_COMMAND} ls
         return
     fi
 
-    # This actually works without the trim() on all systems except OSX
-    tmux_nb=$(_trim $(${TMUX_COMMAND} ls | grep "^${base_session}" | wc -l))
-    if test "${tmux_nb}" == "0" ; then
-        echo "Launching tmux base session $base_session ..."
-        ${TMUX_COMMAND} new-session -s ${base_session}
-    else
-        # Make sure we are not already in a tmux session
-        if test -z "${TMUX}" ; then
-            echo "Attaching to base session $base_session ..."
-            # Attach to the session
-            ${TMUX_COMMAND} attach-session -t ${base_session}
-        fi
-    fi
+    test -z "${TMUX}" || return
+
+    ${TMUX_COMMAND} has-session -t ${base_session}
+    running=$?
+
+    [ "${running}" -eq "1" ] && \
+        ${TMUX_COMMAND} new-session -d -s ${base_session} ${SHELL} \; new-window -d -t ${base_session} -n MC ${MC_COMMAND}
+
+    ${TMUX_COMMAND} new-session -A -s ${base_session}
 }
 
 # {{{ Terminal and prompt

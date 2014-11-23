@@ -1,10 +1,5 @@
 // jstolle's conkerorrc -*- js2 -*-
 
-
-// passwords and usernames
-require("/home/josh/myPasswords.js");
-
-
 // Page modes
 require("page-modes/duckduckgo.js");
 require("page-modes/github.js");
@@ -29,14 +24,12 @@ require("page-modes/youtube.js");
 define_webjump("gmail", "https://mail.google.com"); // gmail inbox
 define_webjump("greader", "http://www.google.com/reader/"); // Google Reader
 define_webjump("twitter", "http://twitter.com/#!/search/%s", $alternative = "https://twitter.com/");  // twitter
-define_webjump("w3schools", "http://www.w3schools.com"); // w3schools site
-define_webjump("w3search", "http://www.google.com/search?sitesearch=www.w3schools.com&as_q=%s"); // w3schools search
 define_webjump("jquery", "http://docs.jquery.com/Special:Search?ns0=1&search=%s"); // jquery
 define_webjump("archwiki", "https://wiki.archlinux.org/index.php?search=%s"); // arch wiki
 define_webjump("stackoverflow", "http://stackoverflow.com/search?q=%s", $alternative = "http://stackoverflow.com/"); // stackoverflow
 define_webjump("stats", "http://stats.stackexchange.com/search?q=%s"); // stats
 define_webjump("imdb", "http://www.imdb.com/find?s=all;q=%s"); // imdb
-define_webjump("duckgo", "https://duckduckgo.com/?q=%s", $alternative = "http://duckduckgo.com"); // duckduckgo
+define_webjump("ddg", "https://duckduckgo.com/?q=%s", $alternative = "https://ddg.gg"); // duckduckgo
 define_webjump("blekko", "http://blekko.com/ws/%s", $alternative = "http://blekko.com/"); // blekko
 define_webjump("youtube", "http://www.youtube.com/results?search_query=%s&aq=f", $alternative = "http://www.youtube.com"); // youtube
 define_webjump("duckgossl", "https://duckduckgo.com/?q=%s"); // duckduckgo SSL
