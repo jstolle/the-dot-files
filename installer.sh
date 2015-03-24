@@ -112,6 +112,19 @@ function _install_pkgs()
     done
 }
 
+# Package installer
+function _install_pkg()
+{
+    PKG=${1}
+    DESTDIR=${2}
+
+    if [[ ! -e ${DESTDIR} ] && [ ! -d ${DESTDIR} ]];then
+        mkdir -p ${DESTDIR}
+    fi
+
+    ${STOW} --no-folding --dir=${BASEDIR} --target=${DETDIR} ${PKG}
+}
+
 # Install regular packages
 function _install_regular()
 {
@@ -136,6 +149,15 @@ do
             break;;
     esac
 done
+
+# Package remover
+function _uninstall_pkg()
+{
+    PKG=${1}
+    DESTDIR=${2}
+
+    ${STOW} -R --no-folding --dir=${BASEDIR} --target=${DETDIR} ${PKG}
+}
 
 shift $((${OPTIND} - 1))
 

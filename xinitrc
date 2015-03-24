@@ -46,7 +46,7 @@ XMODMAP="${HOME}/.Xmodmap"
 [ -f ${XMODMAP} ] && xmodmap ${XMODMAP}
 
 /usr/bin/xautolock -time 30 -locker /usr/bin/slock -secure -detectsleep -corners ++00 -cornerdelay 10 -cornerredelay 30 &
-/usr/bin/compton &
+#/usr/bin/compton &
 #/usr/bin/xbanish &
 ${HOME}/bin/random-wallpaper --timer 15m --setter '/usr/bin/hsetroot -solid \#390000 -tile' --wallpaper ${HOME}/usr/img/wallpaper/patterns &
 $1 &
