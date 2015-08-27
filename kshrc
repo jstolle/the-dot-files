@@ -19,8 +19,8 @@ export LESS="-R"
 export LESSHISTFILE="-"
 export LESSOPEN="| /usr/bin/lesspipe.sh %s"
 export PAGER="most -c"
-export MANPATH="${PLAN9}/man:${MANPATH}"
-export PATH="${PLAN9}/bin:${HOME}/bin:${PATH}:${GOPATH}/bin"
+export MANPATH="${MANPATH}"
+export PATH="${HOME}/bin:${PATH}:${GOPATH}/bin"
 export READNULLCMD="${PAGER}"
 export SAVEHIST=10000
 export VISUAL="emacsclient -nw"
@@ -108,6 +108,7 @@ alias paclog="pacman -Qc"        # Package changelog
 # }}}
 
 # {{{ Packer
+alias packer="~/bin/packer --auronly"
 alias pkrsy="packer -Sy"         # Sync & Update
 alias pkrup="packer -Syu"        # Sync, Update & Upgrade
 alias pkrdg="packer -Syuu"       # Sync, Update & Downgrade
@@ -127,6 +128,28 @@ alias pkrcl="packer -Scc"        # Fully clean the package cache
 alias pkrdl="packer -Swdd"       # Download a package without installing
 alias pkrlo="packer -Qdt"        # List package orphans
 alias pkrlog="packer -Qc"        # Package changelog
+# }}}
+
+# {{{ Yaourt
+alias yrtsy="yaourt -Sy"         # Sync & Update
+alias yrtup="yaourt -Syu"        # Sync, Update & Upgrade
+alias yrtdg="yaourt -Syuu"       # Sync, Update & Downgrade
+alias yrtlu="yaourt -Qu"         # List upgradeable
+alias yrtin="yaourt -S"          # Install a specific package
+alias yrtnd="yaourt -Sdd"        # Install a package but ignore deps
+alias yrtrm="yaourt -Rns"        # Remove a specific package
+alias yrtrd="yaourt -Rdd"        # Remove a package but ignore deps
+alias yrtss="yaourt -Ss"         # Search for a package
+alias yrtsl="yaourt -Qs"         # Search for a package localy
+alias yrtsi="yaourt -Si"         # Package info
+alias yrtqi="yaourt -Qi"         # Package local info
+alias yrtls="yaourt -Ql"         # List files in a package
+alias yrtui="yaourt -Qm"         # List localy built packages
+alias yrtfi="yaourt -Qo"         # Which package file belongs to
+alias yrtcl="yaourt -Scc"        # Fully clean the package cache
+alias yrtdl="yaourt -Swdd"       # Download a package without installing
+alias yrtlo="yaourt -Qdt"        # List package orphans
+alias yrtlog="yaourt -Qc"        # Package changelog
 # }}}
 
 # {{{ Functions
