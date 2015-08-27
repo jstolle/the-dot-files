@@ -419,7 +419,7 @@ myLayoutHook =
         onWorkspace (myWorkspaces !! 4) chatLayouts $
         allLayouts where
                 --per workspace layouts
-                webLayouts  = (myToggleL myCst3 myCst3Name) ||| (myToggleL myCst1 myCst1Name)                                   --workspace 2 layouts
+                webLayouts  = (myTabb myCst3 myCst3Name) ||| (myTabb myCst1 myCst1Name)                                         --workspace 2 layouts
                 codeLayouts = (myToggleL myCst2 myCst2Name) ||| (myToggleL myOneB myOneBName) ||| (myToggleL myTile myTileName) --workspace 3 layouts
                 chatLayouts = myToggleL (withIM (0.2) (Title "Buddy List") myMosA) myChatName                                   --workspace 5 layouts
                 allLayouts  =                                                                                                   -- rest of workspaces layouts
@@ -767,6 +767,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
         , ((0, xF86XK_MonBrightnessUp), spawn "/home/psykotedy/xbin/bridzen.sh")                                        --Raise brightness
         , ((0, xF86XK_MonBrightnessDown), spawn "/home/psykotedy/xbin/bridzen.sh")                                      --Lower brightness
         , ((modMask .|. controlMask, xK_l), spawn "/usr/bin/slock")                                                     --Lock screen
+        , ((0, xF86XK_AudioPlay), spawn "/home/psykotedy/bin/mpc-control toggle")                                       --MPC Play/Pause
+        , ((0, xF86XK_AudioStop), spawn "/home/psykotedy/bin/mpc-control stop")                                         --MPC Stop
         , ((0, xK_Print), spawn "/usr/bin/scrot '%Y-%m-%d_$wx$h.png'" >> flashText myTextConfig 1 " Screenshot Saved ") --Take a screenshot
         --Workspaces management bindings
         , ((mod1Mask, xK_comma), flashText myTextConfig 1 " Toggled to Previous Workspace " >> toggleWS)                          --Toggle to the workspace displayed previously
